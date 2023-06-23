@@ -38,11 +38,11 @@ def __fetch_url_data(url: str, proxy: str) -> str:
             response = requests.get(url, proxies={"http": proxy})
 
             if response.status_code == 200:
-                break
+                return response.text
 
             if response.status_code == 404:
                 logging.warning(f'Page not found (404)')
-                break
+                return None
             
             if response.status_code == 999:
                 logging.warning(f'Too many requests (999), sleep for {settings.RETRY_TIME_IN_SECONDS} seconds url: {url}')
@@ -50,7 +50,6 @@ def __fetch_url_data(url: str, proxy: str) -> str:
                 count+=1
 
         logging.info(f'Fetched successfully\n')
-        return response.text
     
     except Exception as error:
         logging.error(f'Error in function __fetch_url_data', error)
@@ -67,10 +66,13 @@ def __parse_html_response_into_words(text: str) -> list:
     try:
         logging.info(f'Parsing html to words...')
 
+        if text == None:
+            return []
+
         soup = BeautifulSoup(text, "html.parser")
         article_text_object = soup.select_one(settings.ARTICLE_CLASS_NAME)
         if article_text_object == '':
-            return
+            return []
         
         words_list = re.findall(r'\w+', article_text_object.text)
 
