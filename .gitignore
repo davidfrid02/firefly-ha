@@ -1,0 +1,8 @@
+# Compiled Python bytecode
+*.py[cod]
+
+# Python project conf
+.env*
+/venv
+.python_packages
+
