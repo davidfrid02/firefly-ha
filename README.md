@@ -44,12 +44,14 @@ python -m pytest -vv
 
 You will have to provide the these variables:
 
-| variable              | type   | description                              |
-| --------------------- | ------ | ---------------------------------------- |
-| LOGGING_LEVEL         | string | Logging level of the app logs            |
-| ARTICLE_CLASS_NAME    | string | The class name in the html of engadget   |
-| THREAD_COUNT          | int    | How much threads will run                |
-| FILE_PATH             | string | File path for the engadget urls          |
-| BANK_WORDS_URL        | string | Bank words file url                      |
-| RETRY_TIME_IN_SECONDS | int    | Retry time between failed requests       |
-| MAX_RETRIES           | int    | Max retries of each url request          |
+| variable              | type   | description                                                      | Example                                                               |
+| --------------------- | ------ | -----------------------------------------------------------------| --------------------------------------------------------------------- |
+| LOGGING_LEVEL         | string | Logging level of the app logs                                    | INFO                                                                  |
+| ARTICLE_CLASS_NAME    | string | The class name in the html of engadget                           | .article-text                                                         |
+| THREAD_COUNT          | int    | How much threads will run                                        | 50                                                                    |
+| FILE_PATH             | string | File path for the engadget urls                                  | app/files/endg-urls                                                   |
+| BANK_WORDS_URL        | string | Bank words file url                                              | https://raw.githubusercontent.com/dwyl/english-words/master/words.txt |
+| RETRY_TIME_IN_SECONDS | int    | Retry time sleep between failed requests                         | 10                                                                    |
+| MAX_RETRIES           | int    | Max retries of each url request                                  | 3                                                                     |
+| REQUESTS_LIMIT        | int    | Max requests with the same proxy url                             | 200                                                                   |
+| PROXY_LOOP_COUNT      | int    | After X proxy usage we can use again proxy from the begining     | 100                                                                   |

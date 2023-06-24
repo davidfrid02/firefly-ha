@@ -1,4 +1,3 @@
-import requests
 from functools import partial
 
 from app.core.env import settings

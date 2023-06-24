@@ -10,10 +10,16 @@ proxy_cache = set()
 
 def worker(bank_of_words: dict, urls: list):
     try:
-        proxy = ProxyHelper.get_proxy_url()
+        proxy_url = ProxyHelper.get_proxy_url()
 
+        request_count = 0
         for url in urls:
-            response_text = EssaysDAL.fetch_url_data(url, proxy)
+            if request_count == settings.REQUESTS_LIMIT:
+                proxy_url = ProxyHelper.get_proxy_url()
+                request_count = 0
+
+            request_count+=1
+            response_text = EssaysDAL.fetch_url_data(url, proxy_url)
             essay_words = __parse_html_response_into_words(response_text)
             __count_essay_words(essay_words, bank_of_words)
 

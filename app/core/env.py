@@ -8,6 +8,8 @@ class Settings(BaseSettings):
     BANK_WORDS_URL: str
     RETRY_TIME_IN_SECONDS: int
     MAX_RETRIES: int
+    REQUESTS_LIMIT: int
+    PROXY_LOOP_COUNT: int
 
     class Config:
         env_file = '.env'
