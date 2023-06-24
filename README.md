@@ -1,14 +1,15 @@
-# Firefly-ha
+# Firefly home assignment
 
 
 ## Description
-This service fetch data for essays and count top 10 words from all essays combined
+The service fetch articales from engadget website, counts the words from all the essays combiend
+returns: top 10 words
  
 
 ## Prerequisites
 In order to run this project.
 
-- [Python](https://www.python.org/)
+- [Python](https://www.python.org/) - version 3.10.8
 - [pip](https://pip.pypa.io/en/stable/)
 
 
@@ -25,10 +26,20 @@ Install dependencies:
 pip3 install --upgrade pip && pip3 install -r requirements.txt
 ```
 
+Press F5 to run a debug session
+
 To destroy virtual env:
 
 ```
 deactivate && rm -rf ./venv
+
+```
+
+## Tests
+In order to run the tests, run in the console
+
+```
+python -m pytest -vv 
 ```
 
 ## ENV variables

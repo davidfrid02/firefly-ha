@@ -1,7 +1,6 @@
 from pydantic import BaseSettings
 
 class Settings(BaseSettings):
-    APP_NAME: str
     LOGGING_LEVEL: str
     FILE_PATH: str
     ARTICLE_CLASS_NAME: str
