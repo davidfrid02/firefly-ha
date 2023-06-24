@@ -2,8 +2,7 @@
 
 
 ## Description
-The service fetch articales from engadget website, counts the words from all the essays combiend
-returns: top 10 words
+The service fetch articales from engadget website, counts the words from all the essays combiend and returns the top 10 words.
  
 
 ## Prerequisites
@@ -32,7 +31,6 @@ To destroy virtual env:
 
 ```
 deactivate && rm -rf ./venv
-
 ```
 
 ## Tests
