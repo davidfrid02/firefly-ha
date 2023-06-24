@@ -65,7 +65,7 @@ def get_bank_of_words() -> dict:
             if len(word) > 2 and word.isalpha() and not word in words_dict:
                 words_dict[word] = 0
 
-        logging.info(f'Finished fetching and filtering bank words\n')
+        logging.info(f'Finished fetching and filtering bank words, there are {len(words_dict)} words\n')
         return words_dict
     
     except Exception as error:

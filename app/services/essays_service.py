@@ -65,6 +65,8 @@ class EssaysService(LoggingHandler):
             settings.THREAD_COUNT = essays_len
             
         bulk_size = int(essays_len/settings.THREAD_COUNT)
+        self.log.info(f'each bulk size: {bulk_size}')
+
         bulk_size_sum = 0
         eassys_bulks = []
 
@@ -73,7 +75,7 @@ class EssaysService(LoggingHandler):
             bulk_size_sum += bulk_size
             eassys_bulks.append(urls)
 
-        self.log.info('Finished creating bulks\n')
+        self.log.info(f'Finished creating bulks, threre are {len(eassys_bulks)} bulks\n')
         return eassys_bulks
 
 
@@ -96,7 +98,7 @@ class EssaysService(LoggingHandler):
             
             results_list = result.split('\n')
 
-            self.log.info(f'Finished reading file\n')
+            self.log.info(f'Finished reading file, there are {len(results_list)} essays\n')
             return results_list
         
         except Exception as error:
